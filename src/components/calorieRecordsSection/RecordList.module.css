@@ -1,0 +1,29 @@
+.record-list {
+  list-style: none;
+  padding: 0;
+  border: 1px solid var(--theme-color-light);
+  border-radius: 15px;
+}
+
+.list-item {
+  border-bottom: 1px solid var(--theme-color-normal);
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.wrapper {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--theme-background-);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+
+}
+.title {
+  font-size: 1.5em;
+  text-align: center;
+  color: var(--theme-color-normal);
+}

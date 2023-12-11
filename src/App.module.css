@@ -1,0 +1,19 @@
+.title {
+  color: var(--theme-color-dark);
+  width: 100%;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 300;
+}
+.open-model-btn {
+    background-color: var(--theme-color-normal);
+    color: var(--theme-background-light);
+    display: block;
+    border: none;
+    padding: 10px;
+    margin: auto;
+    cursor: pointer;
+    width: 100%;
+    max-width: 225px;
+    flex-grow:1 ;
+}

@@ -1,0 +1,81 @@
+/* .Form styles */
+
+.form {
+  background-color: var(--theme-background-light);
+  padding: 20px;
+  border-radius: var(--theme-border-radius-smooth);
+  border: 1px solid var(--theme-background-normal);
+  display: grid;
+  align-items: baseline;
+}
+
+.form label {
+  color: var(--theme-color-dark);
+  margin-right: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form input[type="text"],
+.calories-input,
+.form input[type="date"],
+.form select {
+  background-color: var(--theme-background-ultralight);
+  color: var(--theme-color-normal);
+  border: 1px solid var(--theme-background-normal);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  min-width: 255px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: block;
+  box-sizing: border-box;
+}
+.error {
+  background-color: var(--theme-background-light);
+  color: maroon;
+  border: 1px solid maroon;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer button {
+  background-color: var(--theme-color-normal);
+  color: var(--theme-background-light);
+  display: block;
+  border: 1px solid var(--theme-color-dark);
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex-grow: 1;
+  margin: 0 5px;
+  width: 0px;
+}
+
+.footer button:hover {
+  background-color: var(--theme-color-dark);
+  color: var(--theme-background-ultralight);
+  transition: 0.2s;
+}
+
+/* Mobile-first styles */
+@media screen and (min-width: 786px) {
+  /* Adjust styles for mobile devices if needed */
+  .form {
+    grid-template-columns: repeat(2, auto 1fr);
+    grid-template-rows: repeat(2, 1fr) minmax(40px, auto);
+    column-gap: 1rem;
+  }
+  .footer {
+    grid-column: 1/-1;
+    justify-self: center;
+    width: 65%;
+ 
+  }
+}
