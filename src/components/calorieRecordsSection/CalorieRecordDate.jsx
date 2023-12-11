@@ -17,8 +17,9 @@ function CalorieRecordDate(props) {
     "Dec",
   ];
 
-  const month = MONTHS[props.date.getUTCMonth()]
-  const day = props.date.getUTCDate();
+  const month = MONTHS[props.date.getUTCMonth()];
+  const day = props.date.getUTCDate() + 1;
+  console.log({ day, month });
   const year = props.date.getUTCFullYear();
   return (
     <CalorieRecordCell>

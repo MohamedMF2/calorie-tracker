@@ -1,14 +1,16 @@
 .record {
   list-style: none;
-  display: flex;
+  display: grid;
   color: var(--theme-color-normal);
-  justify-content: space-around;
   padding: 5px 0;
   height: auto;
-  width: 70%;
-  align-items: center;
+  width: 78%;
   background-color: #fff;
   margin: auto;
+  grid-template-columns: 60px 1fr 3fr 60px;
+  column-gap: 2rem;
+  align-items: center;
+  justify-items: center;
 }
 
 .record-calories {

@@ -26,7 +26,6 @@ function CaloriesRecordEdit(props) {
   const onRecordSubmit = (event) => {
     event.preventDefault();
     props.onFormSubmit(mealRecord);
-    console.log(mealRecord);
     setMealRecord(DEFAULT_VALUE);
   };
 
