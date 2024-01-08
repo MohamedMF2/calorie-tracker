@@ -1,5 +1,5 @@
 import styles from "./CalorieRecordDate.module.css";
-import CalorieRecordCell from "../common/StyledRecordCell";
+import StyledRecordCell from "../common/StyledRecordCell";
 
 function CalorieRecordDate(props) {
   const MONTHS = [
@@ -18,15 +18,15 @@ function CalorieRecordDate(props) {
   ];
 
   const month = MONTHS[props.date.getUTCMonth()];
-  const day = props.date.getUTCDate() + 1;
-  console.log({ day, month });
+  const day = props.date.getUTCDate();
   const year = props.date.getUTCFullYear();
+  
   return (
-    <CalorieRecordCell>
+    <StyledRecordCell>
       <div className={styles["record-date-month"]}>{month}</div>
       <div className={styles["record-date-day"]}>{day}</div>
       <div className={styles["record-date-year"]}>{year}</div>
-    </CalorieRecordCell>
+    </StyledRecordCell>
   );
 }
 
