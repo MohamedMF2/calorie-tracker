@@ -10,12 +10,20 @@
   --theme-color-normal: #8458b3;
   --theme-color-dark: #494d5f;
   --theme-border-radius-smooth: 10px;
-  --theme-background-modal-overlay: rgba(0,0,0,0.5);
+  --theme-background-modal-overlay: rgba(0, 0, 0, 0.5);
 }
 
 body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+
+#root {
   max-width: 1024px;
-  display: grid;
   margin: auto;
   padding: 0 10px;
 }

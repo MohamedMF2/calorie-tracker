@@ -20,9 +20,19 @@ function AppContextProvider(props) {
     setCurrentDate(getDateFromString(val));
   };
 
-  const currentDateStr = !!currentDate
-    ? currentDate.toISOString().split("T")[0]
-    : "";
+  let currentDateStr;
+  const options = { month: "2-digit", day: "2-digit", year: "numeric" };
+  if (!!currentDate) {
+    let currentDateArr = currentDate
+      .toLocaleDateString("en-US", options)
+      .split("/");
+    currentDateStr = `${currentDateArr[2]}-${currentDateArr[0]}-${currentDateArr[1]}`;
+
+    console.log(currentDateArr);
+  } else {
+    currentDateStr = "";
+  }
+
   return (
     <AppContext.Provider
       value={{

@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import CalorieRecord from "./CalorieRecord";
 import styles from "./RecordList.module.css";
-import {AppContext} from "../../app-context";
+import { AppContext } from "../../app-context";
 
 function RecordList(props) {
   const { totalCalories } = useContext(AppContext);
