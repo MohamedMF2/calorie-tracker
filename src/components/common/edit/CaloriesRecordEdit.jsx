@@ -2,6 +2,7 @@ import { useState, useEffect, useReducer, useContext, useRef } from "react";
 import styles from "./CaloriesRecordEdit.module.css";
 import { AppContext } from "../../../app-context";
 import Forminput from "../Forminput";
+import Button from "../Button";
 
 const DEFAULT_VALUE = {
   meal: true,
@@ -155,11 +156,13 @@ function CaloriesRecordEdit(props) {
       />
 
       <div className={styles.footer}>
-        <button disabled={!isFormValid}>add Record</button>
+        <Button disabled={!isFormValid} className="primary">
+          add Record
+        </Button>
 
-        <button type="button" onClick={onCancelHandle}>
+        <Button type="button" onClick={onCancelHandle} className="secondary">
           cancel
-        </button>
+        </Button>
       </div>
     </form>
   );
