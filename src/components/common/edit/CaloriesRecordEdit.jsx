@@ -1,4 +1,12 @@
-import { useState, useEffect, useReducer, useContext, useRef } from "react";
+import {
+  useState,
+  useEffect,
+  useReducer,
+  useContext,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
 import styles from "./CaloriesRecordEdit.module.css";
 import { AppContext } from "../../../app-context";
 import Forminput from "../Forminput";
@@ -46,7 +54,6 @@ function formReducer(state, action) {
 }
 
 function CaloriesRecordEdit(props) {
-  const [isFormValid, setIsFormValid] = useState(false);
   const {
     currentDate,
     currentDateStr,
@@ -63,13 +70,16 @@ function CaloriesRecordEdit(props) {
 
   const { content: isContentValid, calories: isCaloriesValid } = formState;
 
+  const isFormValid = useMemo(() => {
+    return isValidDate && isContentValid && isCaloriesValid;
+  }, [isValidDate, isContentValid, isCaloriesValid]);
+
   useEffect(() => {
     if (!isContentValid) {
       contentRef.current.focus();
     } else if (!isCaloriesValid) {
       caloriesRef.current.focus();
     }
-    setIsFormValid(isValidDate && isContentValid && isCaloriesValid);
   }, [isValidDate, isContentValid, isCaloriesValid]);
 
   const onDateChangeHandler = (event) => {
@@ -109,9 +119,11 @@ function CaloriesRecordEdit(props) {
     });
   };
 
-  const onCancelHandle = () => {
-    props.onCancel();
-  };
+  const onCancelHandle = useCallback(() => {
+    if (isFormValid) {
+      props.onCancel();
+    }
+  }, [isFormValid]);
 
   return (
     <form className={styles.form} onSubmit={onSubmitHandler}>
@@ -156,11 +168,11 @@ function CaloriesRecordEdit(props) {
       />
 
       <div className={styles.footer}>
-        <Button disabled={!isFormValid} className="primary">
+        <Button disabled={!isFormValid} varient="primary">
           add Record
         </Button>
 
-        <Button type="button" onClick={onCancelHandle} className="secondary">
+        <Button type="button" onClick={onCancelHandle} varient="secondary">
           cancel
         </Button>
       </div>

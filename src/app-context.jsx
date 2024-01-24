@@ -28,7 +28,6 @@ function AppContextProvider(props) {
       .split("/");
     currentDateStr = `${currentDateArr[2]}-${currentDateArr[0]}-${currentDateArr[1]}`;
 
-    console.log(currentDateArr);
   } else {
     currentDateStr = "";
   }
