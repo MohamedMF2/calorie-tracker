@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getDateFromString } from "./utils/getDateFromString";
+import { getDateFromString } from "./utils/utils";
 
 export const AppContext = createContext({
   currentDate: new Date(),
@@ -10,7 +10,7 @@ export const AppContext = createContext({
   isValidDate: false,
 });
 
-function AppContextProvider(props) {
+export function AppContextProvider(props) {
   const { children } = props;
   const [totalCalories, setTotalCalories] = useState(0);
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -27,7 +27,6 @@ function AppContextProvider(props) {
       .toLocaleDateString("en-US", options)
       .split("/");
     currentDateStr = `${currentDateArr[2]}-${currentDateArr[0]}-${currentDateArr[1]}`;
-
   } else {
     currentDateStr = "";
   }
@@ -48,4 +47,3 @@ function AppContextProvider(props) {
   );
 }
 
-export default AppContextProvider;

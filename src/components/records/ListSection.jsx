@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import styles from "./ListingSection.module.css";
-import RecordList from "./RecordList";
-import { AppContext } from "../../app-context";
+import styles from "./ListSection.module.css";
+import { RecordList } from "./";
+import { AppContext } from "@root/app-context";
 
-function ListingSection(props) {
+export function ListSection(props) {
   const { allRecords } = props;
 
   const { currentDate, currentDateStr, setCurrentDate } =
@@ -35,4 +35,3 @@ function ListingSection(props) {
     </>
   );
 }
-export default ListingSection;

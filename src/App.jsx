@@ -1,5 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ErrorPage, LandingPage, TrackPage, PageLayout } from "./pages";
+import {
+  ErrorPage,
+  LandingPage,
+  TrackPage,
+  PageLayout,
+  DetailsPage,
+} from "@pages";
 
 const router = createBrowserRouter([
   {
@@ -8,12 +14,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        index:true,
         element: <LandingPage />,
       },
       {
-        path: "/track",
+        path: "track",
         element: <TrackPage />,
+      },
+      {
+        path: "track/:recordId",
+        element: <DetailsPage />,
       },
     ],
   },

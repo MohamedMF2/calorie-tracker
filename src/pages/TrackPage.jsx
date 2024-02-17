@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import styles from "./TrackPage.module.css";
-import ListingSection from "../components/calorieRecordsSection/ListingSection";
-import CaloriesRecordEdit from "../components/common/edit/CaloriesRecordEdit";
-import Modal from "react-modal";
-import AppContextProvider from "../app-context";
 import {} from "react-router-dom";
+import Modal from "react-modal";
+
+import { ListSection } from "@components/records/ListSection";
+import { Form } from "@components/edit/Form";
+
+import styles from "./TrackPage.module.css";
+
 const LOCAL_STORAGE_KEY = "calorieRecords";
 
 export function TrackPage() {
@@ -76,21 +78,15 @@ export function TrackPage() {
   return (
     <>
       <h1 className={styles.title}>Calories Tracker</h1>
-      <AppContextProvider>
-        <Modal
-          isOpen={isModelOpen}
-          onRequestClose={handleCloseModel}
-          contentLabel="Modal"
-          style={modalStyles}
-        >
-          <CaloriesRecordEdit
-            onFormSubmit={formSubmitHandle}
-            onCancel={handleCloseModel}
-          />
-        </Modal>
-        {records && <ListingSection allRecords={records} />}{" "}
-      </AppContextProvider>
-
+      <Modal
+        isOpen={isModelOpen}
+        onRequestClose={handleCloseModel}
+        contentLabel="Modal"
+        style={modalStyles}
+      >
+        <Form onFormSubmit={formSubmitHandle} onCancel={handleCloseModel} />
+      </Modal>
+      {records && <ListSection allRecords={records} />}{" "}
       <button onClick={handleOpenModel} className={styles["open-model-btn"]}>
         {" "}
         Track Food

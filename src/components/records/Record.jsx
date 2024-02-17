@@ -1,10 +1,12 @@
-import styles from "./CalorieRecord.module.css";
-import CalorieRecordDate from "./CalorieRecordDate";
-import StyledRecordCell from "../common/StyledRecordCell";
 import { useContext, useEffect } from "react";
-import {AppContext} from "../../app-context";
 
-function CalorieRecord(props) {
+import { AppContext } from "@root/app-context";
+import { StyledRecordCell } from "@common/StyledRecordCell";
+import { RecordDate } from "./RecordDate";
+
+import styles from "./Record.module.css";
+
+export function Record(props) {
   const { setTotalCalories: addCalories } = useContext(AppContext);
 
   if (props.calories < 0) {
@@ -22,7 +24,7 @@ function CalorieRecord(props) {
   return (
     <ul className={styles.record}>
       <li>
-        <CalorieRecordDate date={props.date} />
+        <RecordDate date={props.date} />
       </li>
       <li>{props.meal}</li>
       <li>{props.content}</li>
@@ -32,5 +34,3 @@ function CalorieRecord(props) {
     </ul>
   );
 }
-
-export default CalorieRecord;

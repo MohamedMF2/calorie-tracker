@@ -1,5 +1,4 @@
 import {
-  useState,
   useEffect,
   useReducer,
   useContext,
@@ -7,10 +6,12 @@ import {
   useCallback,
   useMemo,
 } from "react";
-import styles from "./CaloriesRecordEdit.module.css";
-import { AppContext } from "../../../app-context";
-import Forminput from "../Forminput";
-import Button from "../Button";
+
+import { AppContext } from "@root/app-context";
+import { Forminput } from "@common/Forminput";
+import { Button } from "@common/Button";
+
+import styles from "./Form.module.css";
 
 const DEFAULT_VALUE = {
   meal: true,
@@ -53,7 +54,7 @@ function formReducer(state, action) {
   }
 }
 
-function CaloriesRecordEdit(props) {
+export function Form(props) {
   const {
     currentDate,
     currentDateStr,
@@ -179,5 +180,3 @@ function CaloriesRecordEdit(props) {
     </form>
   );
 }
-
-export default CaloriesRecordEdit;

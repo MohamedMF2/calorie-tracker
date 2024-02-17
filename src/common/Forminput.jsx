@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import styles from "./Forminput.module.css";
 
-const Forminput = forwardRef((props, ref) => {
+export const Forminput = forwardRef((props, ref) => {
   const { label, id, type, isValid, children, ...rest } = props;
   const inputElement =
     type === "select" ? (
@@ -30,4 +30,3 @@ const Forminput = forwardRef((props, ref) => {
     </>
   );
 });
-export default Forminput;
